@@ -9,11 +9,17 @@ class Store {
   getState() {
     return this.state;
   }
+
+  dispatch(update) {
+    this.state = this.reducer(this.state, update);
+  }
 }
 
 const store = new Store(reducer, {});
-console.log(store.getState());
 
-// state = reducer(state, { name: 'Rick' });
+store.dispatch({ name: 'Rick' });
+store.dispatch({ status: 'Getting Swifty' });
+store.dispatch({ name: 'Morty' });
 // state = reducer(state, { status: 'Getting Swifty' });
 // state = reducer(state, { name: 'Morty' });
+console.log(store.getState());
