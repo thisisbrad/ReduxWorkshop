@@ -54,12 +54,39 @@ Flux
 - Should be immutable
   - Return a new object
 
+[Demo]
+
+- show a simple reducer.
+- update state with the reducers
+- walk through each line
+
+```js
+const reducer = (state, update) => ({ ...state, ...update });
+
+let state = {};
+state = reducer(state, { name: 'Rick' });
+state = reducer(state, { status: 'Getting Swifty' });
+state = reducer(state, { name: 'Morty' });
+
+console.log(state);
+```
+
+- What is responsible for invoking the reducer? And how to do we actually manage the state?
+
+- instead of mutating the state object why don't we wrap it up in something self contained like a class? That's basically what Redux's store is.
+
 ### Store
 
 - Responsible for maintaining state
 - Exposes getter via getState()
 - Can only be updated by using dispatch()
 - Can add listeners that get invoked when state changes
+
+- So what does a store need? List the items on slide
+- Lets pass the store a reducer ans some initial state.
+- what should it do in the constructor?
+- now lets add methods to actually interface with our class instance.
+- log out the state with get state
 
 ```js
 class Store {
