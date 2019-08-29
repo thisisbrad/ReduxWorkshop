@@ -9,12 +9,12 @@ const login = async (username, password) => {
     .post('http://localhost:3000/auth/login', { username, password })
     .then(function(response) {
       // handle success
-      console.log(response.data);
+      // console.log(response.data);
       return response.data.token;
     })
     .catch(function(error) {
       // handle error
-      console.log('>>>', error);
+      // console.log('>>>', error);
       throw new Error(error);
     });
 };
@@ -79,7 +79,8 @@ const addContact = newContact => ({
 const logInUser = (username, password) => dispatch => {
   dispatch({ type: 'LOG_IN_SENT' });
   login(username, password)
-    .then(() => {
+    .then(token => {
+      // console.log('token', token);
       dispatch({ type: 'LOG_IN_SUCCESS' });
     })
     .catch(err => {

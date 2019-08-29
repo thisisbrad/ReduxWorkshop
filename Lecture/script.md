@@ -178,6 +178,8 @@ console.log(state);
 - pretend we had access to dispatch then we could still dispath our actions
 - point out loginUser() returns a function with dispatch in it
 
+- what we are doing is not ideal it was cause us to rewrtie or rework redux which we don't want.
+
 **Redux Middleware**
 
 - This allows us to extend redux without having to touch the
