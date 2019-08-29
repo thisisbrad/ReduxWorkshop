@@ -146,6 +146,14 @@ console.log(state);
 
 - Fix the issues with the reducers and default state
 
+- make new file and install Redux
+
+- require in createStore and replace store class
+
+- bring in combinereducers and replace our reducer
+
+- Go over Async Actions next
+
 ```js
 class Store {
   constructor(reducer, initialState) {
