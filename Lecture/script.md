@@ -128,6 +128,10 @@ console.log(state);
 
 - How do we add contact? Lets make a new type.
 
+- Use UPDATE_CONTACT and walk through code
+
+- Bring in const types to help with typos and being consistent
+
 -
 
 ```js
