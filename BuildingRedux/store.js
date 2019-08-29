@@ -2,30 +2,22 @@ const DEFAULT_STATE = { user: {}, contacts: [] };
 const UPDATE_USER = 'UPDATE_USER';
 const UPDATE_CONTACT = 'UPDATE_CONTACT';
 
-const userReducer = (state, update) => ({ ...state, ...update });
-const contactReducer = (state, newContact) => [...state, newContact];
-
-// const reducer = (state, action) => {
-//   if (action.type === UPDATE_USER) {
-//     return {
-//       ...state,
-//       user: userReducer(state.user, action.payload)
-//     };
-//   }
-
-//   if (action.type === UPDATE_CONTACT) {
-//     return {
-//       ...state,
-//       contacts: contactReducer(state.contacts, action.payload)
-//     };
-//   }
-
-//   return state;
-// };
-
-const reducer = (state, action) => {
-  //
+const userReducer = (state = {}, action) => {
+  if (action.type === UPDATE_USER) return { ...state, ...action.payload };
+  // if (action.type === UPDATE_CONTACT)
+  //   return { ...state, recentContact: action.payload };
+  return state;
 };
+
+const contactReducer = (state = [], action) => {
+  if (action.type === UPDATE_CONTACT) return [...state, action.payload];
+  return state;
+};
+
+const reducer = (state, action) => ({
+  user: userReducer(state.user, action),
+  contacts: contactReducer(state.contact, action)
+});
 
 class Store {
   constructor(reducer, initialState) {

@@ -142,6 +142,10 @@ console.log(state);
 
 - lets make a reducer that passes the action on to all the smaller reducers and allow for the ability of more than one reducer to respond to the same action type.
 
+- maybe we can just return a object with each key of out state and assign the corresponding reducer.
+
+- Fix the issues with the reducers and default state
+
 ```js
 class Store {
   constructor(reducer, initialState) {
