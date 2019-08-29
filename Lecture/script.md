@@ -106,15 +106,23 @@ console.log(state);
 
 - How does redux know what part of the state to update? While through these things called actions.
 
-- What if we had a piece of data that declared what type of action it was.
+### Actions
 
-- Go over FSA. Discuss uniformity
+- An action is a piece of data that contains the information
+  required to make a state update
+- Usually objects with a type key. Follow FSA.
+- Functions that create actions are called action creators
+- Actions must be dispatched in order to affect the state
 
-- Add a type to dispatch and check for the type in the reducer.
+* What if we had a piece of data that declared what type of action it was.
 
-- check for type in reducer
+* Go over FSA. Discuss uniformity
 
-- go over the flow from dispatch to store
+* Add a type to dispatch and check for the type in the reducer.
+
+* check for type in reducer
+
+* go over the flow from dispatch to store
 
 ```js
 class Store {
@@ -132,14 +140,6 @@ class Store {
   }
 }
 ```
-
-### Actions
-
-- An action is a piece of data that contains the information
-  required to make a state update
-- Usually objects with a type key. Follow FSA.
-- Functions that create actions are called action creators
-- Actions must be dispatched in order to affect the state
 
 ### Reducer
 
