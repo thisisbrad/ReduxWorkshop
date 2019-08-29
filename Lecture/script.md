@@ -190,6 +190,8 @@ console.log(state);
 - https://github.com/gaearon/redux-thunk
   - “A thunk is a function that wraps an expression to delay its evaluation"
 
+**Async with Redux Middleware**
+
 ```js
 class Store {
   constructor(reducer, initialState) {
