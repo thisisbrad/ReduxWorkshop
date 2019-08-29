@@ -156,6 +156,33 @@ console.log(state);
 
 - Go over Async Actions next
 
+- Go over React and Redux
+
+- How to we get our state into components?
+
+**Supporting Async Requests**
+
+- Where do we want to add this support? How do we
+  change our API?
+  - Reducers
+  - Store
+  - Actions
+  - Action creators
+- We need to change more than just the action creators
+- Store.dispatch() needs to accept other types
+- Our addition is unideal, since we had to change our redux
+  implementation
+
+**Redux Middleware**
+
+- This allows us to extend redux without having to touch the
+  implementation
+- Any function with this prototype can be middleware
+  - ({getState, dispatch}) => next => action => void
+- We can reimplement our feature as middleware
+- https://github.com/gaearon/redux-thunk
+  - “A thunk is a function that wraps an expression to delay its evaluation"
+
 ```js
 class Store {
   constructor(reducer, initialState) {
