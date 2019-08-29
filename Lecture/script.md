@@ -132,7 +132,15 @@ console.log(state);
 
 - Bring in const types to help with typos and being consistent
 
--
+- Make action creators for both user and contacts.
+
+- Use action creators in the dispatch function
+
+- Go over flow and point out a scaling problem
+
+- Where can we put the logic so that every reducer has the ability to look at all actions?
+
+- lets make a reducer that passes the action on to all the smaller reducers and allow for the ability of more than one reducer to respond to the same action type.
 
 ```js
 class Store {
