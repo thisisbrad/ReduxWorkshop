@@ -1,4 +1,5 @@
 const { createStore, combineReducers, applyMiddleware } = require('redux');
+const thunk = require('redux-thunk');
 
 const DEFAULT_STATE = { user: {}, contacts: [] };
 const UPDATE_USER = 'UPDATE_USER';
@@ -21,13 +22,13 @@ const reducer = combineReducers({
   contacts: contactReducer
 });
 
-const thunk = store => next => action => {
-  if (typeof action === 'function') {
-    action(store.dispatch);
-  } else {
-    next(action);
-  }
-};
+// const thunk = store => next => action => {
+//   if (typeof action === 'function') {
+//     action(store.dispatch);
+//   } else {
+//     next(action);
+//   }
+// };
 
 const store = createStore(reducer, DEFAULT_STATE, applyMiddleware(thunk));
 
