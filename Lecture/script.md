@@ -146,6 +146,8 @@ console.log(state);
 
 - Fix the issues with the reducers and default state
 
+- make user reducer respond to both types and show switch statement
+
 - make new file and install Redux
 
 - require in createStore and replace store class
