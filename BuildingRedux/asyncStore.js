@@ -6,15 +6,15 @@ const UPDATE_CONTACT = 'UPDATE_CONTACT';
 
 const login = async (username, password) => {
   axios
-    .post('http://localhost:8000/login', { username, password })
+    .post('http://localhost:3000/auth/login', { username, password })
     .then(function(response) {
       // handle success
-      console.log(response);
-      return true;
+      console.log(response.data);
+      return response.data.token;
     })
     .catch(function(error) {
       // handle error
-      console.log(error);
+      console.log('>>>', error);
       throw new Error(error);
     });
 };
