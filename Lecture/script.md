@@ -87,6 +87,32 @@ console.log(state);
 - what should it do in the constructor?
 - now lets add methods to actually interface with our class instance.
 - log out the state with get state
+- add getState() and log
+
+- most importantly we need a way to update our state
+- In Redux it's done by invoking dispath with an action to update itself with.
+- dispatch take in the update and uses the reducer to update the state
+
+- add store.dispatch to code and go over it
+- now instead of handling the reducers ourselves both the reducer and the state are abrstacted away.
+- instead of us creating state and mutating it with the return values from the reducer we are letting the Store handle that for us. So we don't have to keep passing the old state.
+
+**Expanding our reducers abilities**
+
+- Right now our reducer can only merge objects, but what if we wanted to use arrays.
+
+- we can create as many reducers as we need for our state.
+- now that we have more than one we need a way to combine them since the store only takes in one.
+
+- How does redux know what part of the state to update? While through these things called actions.
+
+- What if we had a piece of data that declared what type of action it was.
+
+- Go over FSA. Discuss uniformity
+
+- Add a type to dispatch and check for the type in the reducer.
+
+-
 
 ```js
 class Store {

@@ -1,4 +1,11 @@
-const reducer = (state, update) => ({ ...state, ...update });
+const userReducer = (state, update) => ({ ...state, ...update });
+const contactReducer = (state, newContact) => [...state, newContact];
+
+const reducer = (state, action) => {
+  if (action.type === 'UPDATE_USER') {
+    //
+  }
+};
 
 class Store {
   constructor(reducer, initialState) {
@@ -17,9 +24,9 @@ class Store {
 
 const store = new Store(reducer, {});
 
-store.dispatch({ name: 'Rick' });
-store.dispatch({ status: 'Getting Swifty' });
-store.dispatch({ name: 'Morty' });
+store.dispatch({ type: 'UPDATE_USER', payload: { name: 'Rick' } });
+store.dispatch({ type: 'UPDATE_USER', payload: { status: 'Getting Swifty' } });
+store.dispatch({ type: 'UPDATE_USER', payload: { name: 'Morty' } });
 // state = reducer(state, { status: 'Getting Swifty' });
 // state = reducer(state, { name: 'Morty' });
 console.log(store.getState());
