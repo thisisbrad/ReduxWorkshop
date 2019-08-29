@@ -40,13 +40,22 @@ class Store {
 
 const store = new Store(reducer, DEFAULT_STATE);
 
-store.dispatch({ type: UPDATE_USER, payload: { name: 'Rick' } });
-store.dispatch({ type: UPDATE_USER, payload: { status: 'Getting Swifty' } });
-store.dispatch({ type: UPDATE_USER, payload: { name: 'Morty' } });
+const updateUser = update => ({ type: UPDATE_USER, payload: update });
 
-store.dispatch({
+const addContact = newContact => ({
   type: UPDATE_CONTACT,
-  payload: { name: 'Morty', number: '123456789' }
+  payload: newContact
 });
+
+store.dispatch(updateUser({ name: 'Rick' }));
+store.dispatch(updateUser({ status: 'Getting Swifty' }));
+store.dispatch(updateUser({ name: 'Morty' }));
+// store.dispatch({ type: UPDATE_USER, payload: { name: 'Morty' } });
+
+store.dispatch(addContact({ name: 'Morty', number: '123456789' }));
+// store.dispatch({
+//   type: UPDATE_CONTACT,
+//   payload: { name: 'Morty', number: '123456789' }
+// });
 
 console.log(store.getState());
