@@ -1,4 +1,4 @@
-const redux = require('redux');
+const { createStore, combineReducers } = require('redux');
 
 const DEFAULT_STATE = { user: {}, contacts: [] };
 const UPDATE_USER = 'UPDATE_USER';
@@ -16,27 +16,12 @@ const contactReducer = (state = [], action) => {
   return state;
 };
 
-const reducer = (state, action) => ({
-  user: userReducer(state.user, action),
-  contacts: contactReducer(state.contact, action)
+const reducer = combineReducers({
+  user: userReducer,
+  contacts: contactReducer
 });
 
-class Store {
-  constructor(reducer, initialState) {
-    this.reducer = reducer;
-    this.state = initialState;
-  }
-
-  getState() {
-    return this.state;
-  }
-
-  dispatch(update) {
-    this.state = this.reducer(this.state, update);
-  }
-}
-
-const store = new Store(reducer, DEFAULT_STATE);
+const store = createStore(reducer, DEFAULT_STATE);
 
 const updateUser = update => ({ type: UPDATE_USER, payload: update });
 
@@ -48,12 +33,7 @@ const addContact = newContact => ({
 store.dispatch(updateUser({ name: 'Rick' }));
 store.dispatch(updateUser({ status: 'Getting Swifty' }));
 store.dispatch(updateUser({ name: 'Morty' }));
-// store.dispatch({ type: UPDATE_USER, payload: { name: 'Morty' } });
 
 store.dispatch(addContact({ name: 'Morty', number: '123456789' }));
-// store.dispatch({
-//   type: UPDATE_CONTACT,
-//   payload: { name: 'Morty', number: '123456789' }
-// });
 
 console.log(store.getState());
