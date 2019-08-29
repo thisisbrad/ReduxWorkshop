@@ -124,6 +124,12 @@ console.log(state);
 
 * go over the flow from dispatch to store
 
+- Add a default state
+
+- How do we add contact? Lets make a new type.
+
+-
+
 ```js
 class Store {
   constructor(reducer, initialState) {
