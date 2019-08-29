@@ -1,5 +1,5 @@
 const { createStore, combineReducers, applyMiddleware } = require('redux');
-const thunk = require('redux-thunk');
+const { thunk } = require('redux-thunk');
 
 const DEFAULT_STATE = { user: {}, contacts: [] };
 const UPDATE_USER = 'UPDATE_USER';
