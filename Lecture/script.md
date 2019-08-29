@@ -112,7 +112,9 @@ console.log(state);
 
 - Add a type to dispatch and check for the type in the reducer.
 
--
+- check for type in reducer
+
+- go over the flow from dispatch to store
 
 ```js
 class Store {
