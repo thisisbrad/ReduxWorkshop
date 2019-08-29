@@ -160,7 +160,7 @@ console.log(state);
 
 - How to we get our state into components?
 
-**Supporting Async Requests**
+**Supporting Async Requests [Step 10]**
 
 - Where do we want to add this support? How do we
   change our API?
@@ -172,6 +172,11 @@ console.log(state);
 - Store.dispatch() needs to accept other types
 - Our addition is unideal, since we had to change our redux
   implementation
+
+- start off by making an async action creator
+- then point out .then just contunies the Promise chain.
+- pretend we had access to dispatch then we could still dispath our actions
+- point out loginUser() returns a function with dispatch in it
 
 **Redux Middleware**
 
