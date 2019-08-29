@@ -3,8 +3,13 @@ const contactReducer = (state, newContact) => [...state, newContact];
 
 const reducer = (state, action) => {
   if (action.type === 'UPDATE_USER') {
-    //
+    return {
+      ...state,
+      user: userReducer(state.user, action.payload)
+    };
   }
+
+  return state;
 };
 
 class Store {
@@ -27,6 +32,4 @@ const store = new Store(reducer, {});
 store.dispatch({ type: 'UPDATE_USER', payload: { name: 'Rick' } });
 store.dispatch({ type: 'UPDATE_USER', payload: { status: 'Getting Swifty' } });
 store.dispatch({ type: 'UPDATE_USER', payload: { name: 'Morty' } });
-// state = reducer(state, { status: 'Getting Swifty' });
-// state = reducer(state, { name: 'Morty' });
 console.log(store.getState());
