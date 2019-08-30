@@ -1,5 +1,4 @@
-const { createStore, combineReducers } = require('redux');
-
+import { createStore, combineReducers } from 'redux';
 import { userReducer, contactReducer } from './reducer';
 import { updateUser, addContact } from './actions';
 
@@ -17,8 +16,8 @@ store.dispatch(updateUser({ status: 'Getting Swifty' }));
 store.dispatch(updateUser({ name: 'Morty' }));
 
 store.dispatch(addContact({ name: 'Morty', number: '123456789' }));
-store.dispatch(addContact({ name: 'Bob', number: '123456789' }));
-store.dispatch(addContact({ name: 'Tina', number: '123456789' }));
-store.dispatch(addContact({ name: 'Gene', number: '123456789' }));
+store.dispatch(addContact({ name: 'Bob', number: '423456789' }));
+store.dispatch(addContact({ name: 'Tina', number: '523456789' }));
+store.dispatch(addContact({ name: 'Gene', number: '623456789' }));
 
 console.log(store.getState());

@@ -11,6 +11,8 @@ import {
 } from 'reactstrap';
 // import PropTypes from 'prop-types';
 
+import store from '../../redux/store';
+
 import styles from './styles.module.css';
 
 class Services extends Component {

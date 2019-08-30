@@ -1,8 +1,8 @@
-import { UPDATE_TODO, UPDATE_USER } from './types';
+import { UPDATE_CONTACT, UPDATE_USER } from './types';
 
-const updateUser = update => ({ type: UPDATE_USER, payload: update });
+export const updateUser = update => ({ type: UPDATE_USER, payload: update });
 
-const addTodo = newTodo => ({
-  type: UPDATE_TODO,
-  payload: newTodo
+export const addContact = newContact => ({
+  type: UPDATE_CONTACT,
+  payload: newContact
 });

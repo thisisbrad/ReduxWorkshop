@@ -203,5 +203,5 @@ console.log(state);
 - open up demo app
 - show form the way it is with state
 - bring in our old store and everthing else
-- move files around
+- move files around and export everything
 - now bring in store to the
