@@ -208,4 +208,11 @@ console.log(state);
 - step 15 is the starting point for everyone
 -
 
-* now bring in store to
+* now bring in store to Services
+
+- replace contacts in the render
+- replace setState with dispatch
+
+* now why is our view updating?
+
+- how can we bind react and redux in a clean manner

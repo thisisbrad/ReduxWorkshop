@@ -12,6 +12,7 @@ import {
 // import PropTypes from 'prop-types';
 
 import store from '../../redux/store';
+import { addContact } from '../../redux/actions';
 
 import styles from './styles.module.css';
 
@@ -29,8 +30,10 @@ class Services extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { name, number, contacts } = this.state;
-    this.setState({ contacts: [...contacts, { name, number }] });
+    const { name, number } = this.state;
+    store.dispatch(addContact({ name, number }));
+    console.log(store.getState());
+    // this.setState({ contacts: [...contacts, { name, number }] });
   };
 
   renderContacts = () => {
