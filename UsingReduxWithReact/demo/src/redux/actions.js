@@ -59,3 +59,20 @@ export const removeContact = id => async dispatch => {
     console.error(error);
   }
 };
+
+export const updateContact = (update, id) => async dispatch => {
+  console.log('Update Action ', update, id);
+  try {
+    const res = await axios.put(
+      `https://endpoint.yourcode.app/thisisbrad/api/contacts/${id}`,
+      update
+    );
+    console.log('YAY its coming back', res.data);
+    dispatch({
+      type: EDIT_CONTACT,
+      payload: res.data
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};

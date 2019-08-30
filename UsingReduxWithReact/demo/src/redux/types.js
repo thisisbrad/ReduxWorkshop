@@ -1,4 +1,5 @@
 export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
+export const EDIT_CONTACT = 'EDIT_CONTACT';
 export const LOAD_CONTACTS = 'LOAD_CONTACTS';
 export const REMOVE_CONTACT = 'REMOVE_CONTACT';
