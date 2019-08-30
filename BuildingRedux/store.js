@@ -4,8 +4,8 @@ const UPDATE_CONTACT = 'UPDATE_CONTACT';
 
 const userReducer = (state = {}, action) => {
   if (action.type === UPDATE_USER) return { ...state, ...action.payload };
-  // if (action.type === UPDATE_CONTACT)
-  //   return { ...state, recentContact: action.payload };
+  if (action.type === UPDATE_CONTACT)
+    return { ...state, recentContact: action.payload };
   return state;
 };
 
@@ -16,7 +16,7 @@ const contactReducer = (state = [], action) => {
 
 const reducer = (state, action) => ({
   user: userReducer(state.user, action),
-  contacts: contactReducer(state.contact, action)
+  contacts: contactReducer(state.contacts, action)
 });
 
 class Store {
@@ -49,6 +49,8 @@ store.dispatch(updateUser({ name: 'Morty' }));
 // store.dispatch({ type: UPDATE_USER, payload: { name: 'Morty' } });
 
 store.dispatch(addContact({ name: 'Morty', number: '123456789' }));
+store.dispatch(addContact({ name: 'Bob', number: '123456789' }));
+store.dispatch(addContact({ name: 'Bob', number: '123456789' }));
 // store.dispatch({
 //   type: UPDATE_CONTACT,
 //   payload: { name: 'Morty', number: '123456789' }
