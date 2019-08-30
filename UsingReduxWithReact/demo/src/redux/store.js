@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { userReducer, contactReducer } from './reducer';
 import { updateUser, addContact } from './actions';
 
@@ -9,7 +10,21 @@ const reducer = combineReducers({
   contacts: contactReducer
 });
 
-const store = createStore(reducer, DEFAULT_STATE);
+// const thunk = store => next => action => {
+//   if (typeof action === 'function') {
+//     action(store.dispatch);
+//   } else {
+//     next(action);
+//   }
+// };
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  reducer,
+  DEFAULT_STATE,
+  composeEnhancers(applyMiddleware(thunk))
+);
 
 store.dispatch(updateUser({ name: 'Rick' }));
 store.dispatch(updateUser({ status: 'Getting Swifty' }));
