@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
 import store from '../../redux/store';
-import { addContact } from '../../redux/actions';
+import { addContact, fetchContacts } from '../../redux/actions';
 
 import styles from './styles.module.css';
 
@@ -23,6 +23,10 @@ class Services extends Component {
     password: '',
     contacts: []
   };
+
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
 
   handleChange = event => {
     const { name, value } = event.target;
@@ -99,5 +103,5 @@ const mapStateToProps = state => ({ contacts: state.contacts });
 
 export default connect(
   mapStateToProps,
-  { addContact }
+  { addContact, fetchContacts }
 )(Services);

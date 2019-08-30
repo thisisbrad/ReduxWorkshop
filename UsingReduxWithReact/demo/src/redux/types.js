@@ -1,2 +1,3 @@
 export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_CONTACT = 'UPDATE_CONTACT';
+export const LOAD_CONTACTS = 'LOAD_CONTACT';
