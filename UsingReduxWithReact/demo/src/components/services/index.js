@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
 import store from '../../redux/store';
-import { addContact, fetchContacts } from '../../redux/actions';
+import { addContact, fetchContacts, removeContact } from '../../redux/actions';
 
 import styles from './styles.module.css';
 
@@ -41,10 +41,16 @@ class Services extends Component {
     // this.setState({ contacts: [...contacts, { name, number }] });
   };
 
+  removeContact = id => {
+    console.log(id);
+    this.props.removeContact(id);
+  };
+
   renderContacts = () => {
     return this.props.contacts.map(contact => (
       <li key={contact.number}>
         {contact.name} {contact.number}
+        <Button onClick={() => this.removeContact(contact.id)}>X</Button>
       </li>
     ));
   };
@@ -103,5 +109,5 @@ const mapStateToProps = state => ({ contacts: state.contacts });
 
 export default connect(
   mapStateToProps,
-  { addContact, fetchContacts }
+  { addContact, fetchContacts, removeContact }
 )(Services);
