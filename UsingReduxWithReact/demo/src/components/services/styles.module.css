@@ -1,0 +1,39 @@
+.cta {
+  background-color: var(--bg-color);
+  padding: 60px 0;
+}
+
+.ctaImage {
+  height: auto;
+  max-width: 100%;
+}
+
+.btn {
+  composes: btn from '../../brand.css';
+  margin-top: 30px;
+}
+
+.heading {
+  composes: heading from '../../brand.css';
+}
+
+.filters {
+  margin: 40px 0;
+  justify-content: center;
+}
+
+.filterLink {
+  border: 0;
+  border-bottom: 1px solid transparent;
+  padding: 20px 15px;
+  margin: 0 20px;
+  outline: none;
+}
+
+.filterLink:focus {
+  outline: none;
+}
+
+.filterLink[css-active='true'] {
+  border-bottom: 1px solid #000;
+}
