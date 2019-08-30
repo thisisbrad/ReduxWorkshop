@@ -192,145 +192,15 @@ console.log(state);
 
 **Async with Redux Middleware**
 
-```js
-class Store {
-  constructor(reducer, initialState) {
-    this.reducer = reducer;
-    this.state = initialState;
-  }
+- mess with dispatch to make it all work
+- bring in actual redux and state converting
+- discuss middleware and how it works
+- create our own thunk function
+- bring in thunk for real
 
-  getState() {
-    return this.state;
-  }
+**Move on to React and Redux**
 
-  dispatch(update) {
-    this.state = this.reducer(this.state, update);
-  }
-}
-```
-
-### Reducer
-
-- Narrows down to a specific part of state in the store
-- Takes an action to update the store with
-
-```js
-const reducer = (state, update) => [...state, ...update];
-
-let state = {};
-state = reducer(state, { name: 'Rick' });
-state = reducer(state, { status: 'Getting Swifty' });
-state = reducer(state, { name: 'Morty' });
-
-console.log(state);
-```
-
-### Connecting the Store and Reducer
-
-> Reducer → Update Store
-
-When connecting the reducer to the store we can update specific parts of the state object.
-
-```js
-class Store {
-  constructor(reducer, initialState) {
-    this.reducer = reducer;
-    this.state = initialState;
-  }
-
-  getState() {
-    return this.state;
-  }
-
-  dispatch(update) {
-    this.state = this.reducer(this.state, update);
-  }
-}
-
-const reducer = (state, update) => [...state, ...update];
-
-const store = new Store(reducer, { name: 'Rick' });
-store.dispatch({ name: 'Rick' });
-store.dispatch({ status: 'Getting Swifty' });
-store.dispatch({ name: 'Morty' });
-
-console.log(store.getState());
-```
-
-### Putting it all together
-
-> Reducer → Update Store
-
-When connecting the reducer to the store we can update specific parts of the state object.
-
-```js
-// action types
-const UPDATE_USER = 'UPDATE_USER';
-const UPDATE_CONTACT = 'UPDATE_CONTACT';
-
-// Store (State is stored here)
-class Store {
-  constructor(reducer, initialState) {
-    this.reducer = reducer;
-    this.state = initialState;
-  }
-
-  getState() {
-    return this.state;
-  }
-
-  dispatch(update) {
-    this.state = this.reducer(this.state, update);
-  }
-}
-
-// Default state to populate our Store at first
-const DEFAULT_STATE = { user: {}, contacts: [] };
-
-// Reducers (update Store)
-const contactReducer = (state, action) => {
-  if (action.type === UPDATE_CONTACT) return [...state, action.payload];
-  return state;
-};
-
-const userReducer = (state, action) => {
-  if (action.type === UPDATE_USER) return [state, action.payload];
-  if (action.type === UPDATE_CONTACT)
-    return [state, { prevContact: action.payload }];
-  return state;
-};
-
-// Combining our reducers
-const reducer = (state, action) => ({
-  user: userReducer(state.user, action),
-  contacts: contactReducer(state.contacts, action)
-});
-
-// action creators
-const updateUser = update => ({
-  type: UPDATE_USER,
-  payload: update
-});
-
-const addContact = newContact => ({
-  type: UPDATE_CONTACT,
-  payload: newContact
-});
-
-const createUser = (username, password) => {
-  return addContact({ username, password });
-};
-
-const store = new Store(reducer, DEFAULT_STATE);
-store.dispatch(updateUser({ name: 'Rick' }));
-store.dispatch(updateUser({ status: 'Gettign Swifty' }));
-store.dispatch(updateUser({ name: 'Rick' }));
-
-store.dispatch(addContact({ name: 'jordan h', number: '1234567890' }));
-store.dispatch(addContact({ name: 'jordan h', number: '1234567890' }));
-store.dispatch(addContact({ name: 'david m', number: '5050505050' }));
-
-console.log(store.getState());
-```
-
-### Async Actions
+- open up demo app
+- show form the way it is with state
+- bring in our old store and everthing else
+- rename contacts to todos
