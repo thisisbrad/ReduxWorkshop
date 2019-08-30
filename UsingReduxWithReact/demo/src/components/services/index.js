@@ -9,6 +9,7 @@ import {
   Label,
   Input
 } from 'reactstrap';
+import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
 import store from '../../redux/store';
@@ -31,15 +32,13 @@ class Services extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { name, number } = this.state;
-    store.dispatch(addContact({ name, number }));
+    this.props.addContact({ name, number });
     console.log(store.getState());
     // this.setState({ contacts: [...contacts, { name, number }] });
   };
 
   renderContacts = () => {
-    const { contacts } = store.getState();
-
-    return contacts.map(contact => (
+    return this.props.contacts.map(contact => (
       <li key={contact.number}>
         {contact.name} {contact.number}
       </li>
@@ -96,4 +95,9 @@ class Services extends Component {
   }
 }
 
-export default Services;
+const mapStateToProps = state => ({ contacts: state.contacts });
+
+export default connect(
+  mapStateToProps,
+  { addContact }
+)(Services);

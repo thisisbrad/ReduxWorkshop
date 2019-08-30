@@ -216,3 +216,5 @@ console.log(state);
 * now why is our view updating?
 
 - how can we bind react and redux in a clean manner
+
+- go over HOC and install react-redux
