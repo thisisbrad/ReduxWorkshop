@@ -204,4 +204,8 @@ console.log(state);
 - show form the way it is with state
 - bring in our old store and everthing else
 - move files around and export everything
-- now bring in store to the
+
+- step 15 is the starting point for everyone
+-
+
+* now bring in store to
