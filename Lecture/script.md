@@ -203,4 +203,5 @@ console.log(state);
 - open up demo app
 - show form the way it is with state
 - bring in our old store and everthing else
-- rename contacts to todos
+- move files around
+- now bring in store to the

@@ -9,7 +9,7 @@ import {
   Label,
   Input
 } from 'reactstrap';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import styles from './styles.module.css';
 
@@ -17,7 +17,7 @@ class Services extends Component {
   state = {
     email: '',
     password: '',
-    todos: []
+    contacts: []
   };
 
   handleChange = event => {
@@ -27,15 +27,15 @@ class Services extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { title, task, todos } = this.state;
-    this.setState({ todos: [...todos, { title, task }] });
+    const { name, number, contacts } = this.state;
+    this.setState({ contacts: [...contacts, { name, number }] });
   };
 
-  renderTodos = () => {
-    if (this.state.todos) {
-      return this.state.todos.map(todo => (
-        <li>
-          {todo.title} {todo.task}
+  renderContacts = () => {
+    if (this.state.contacts) {
+      return this.state.contacts.map(contact => (
+        <li key={contact.number}>
+          {contact.name} {contact.number}
         </li>
       ));
     }
@@ -49,25 +49,25 @@ class Services extends Component {
           <Container>
             <Row>
               <Col sm="6">
-                <h3>Create New Todos</h3>
+                <h3>Create New Contact</h3>
                 <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="exampleTitle">Title</Label>
+                    <Label for="exampleTitle">Name</Label>
                     <Input
                       type="text"
-                      name="title"
-                      id="exampleTitle"
-                      placeholder="Title for Todo"
+                      name="name"
+                      id="exampleName"
+                      placeholder="Name of contact"
                       onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="exampleTask">Task</Label>
+                    <Label for="exampleNumber">Number</Label>
                     <Input
                       type="text"
-                      name="task"
-                      id="exampleTask"
-                      placeholder="Task of Todo"
+                      name="number"
+                      id="exampleNumber"
+                      placeholder="Number for contact"
                       onChange={this.handleChange}
                     />
                   </FormGroup>
@@ -84,70 +84,12 @@ class Services extends Component {
         </div>
         <Container>
           <Row className="my-4">
-            <ul>{this.renderTodos()}</ul>
+            <ul>{this.renderContacts()}</ul>
           </Row>
         </Container>
       </>
     );
   }
 }
-
-Services.propTypes = {
-  filters: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      name: PropTypes.string
-    })
-  ),
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
-      image: PropTypes.string,
-      id: PropTypes.string
-    })
-  )
-};
-
-Services.defaultProps = {
-  filters: [
-    {
-      id: 'lamp',
-      name: 'Lamp'
-    },
-    {
-      id: 'sofa',
-      name: 'Sofa'
-    },
-    {
-      id: 'plants',
-      name: 'Plants'
-    },
-    {
-      id: 'miniature',
-      name: 'Miniature'
-    },
-    {
-      id: 'desk',
-      name: 'Desk'
-    }
-  ],
-  items: [
-    {
-      id: '123',
-      title: 'Summer Peas',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam excepturi consectetur, ipsam consequuntur, porro vero! Ex doloribus, nemo consequatur iusto illo sunt voluptate. Pariatur rem obcaecati, amet eius possimus nobis!',
-      type: 'plants'
-    },
-    {
-      id: '234',
-      title: 'Lamp1',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam excepturi consectetur, ipsam consequuntur, porro vero! Ex doloribus, nemo consequatur iusto illo sunt voluptate. Pariatur rem obcaecati, amet eius possimus nobis!',
-      type: 'lamp'
-    }
-  ]
-};
 
 export default Services;
