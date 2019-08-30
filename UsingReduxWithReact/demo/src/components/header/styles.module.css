@@ -1,0 +1,19 @@
+.nav {
+  padding: 0;
+  background-color: var(--white-color) !important;
+}
+
+.link {
+  margin: 0;
+  padding: 30px 20px 40px 20px !important;
+}
+
+.active {
+  background-color: var(--active-color);
+  color: var(--white-color) !important;
+}
+
+.iconBtn {
+  color: var(--active-color);
+  cursor: pointer;
+}
