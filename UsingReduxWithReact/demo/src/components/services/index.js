@@ -14,6 +14,34 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
 class Services extends Component {
+  state = {
+    email: '',
+    password: '',
+    todos: []
+  };
+
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    const { title, task, todos } = this.state;
+    this.setState({ todos: [...todos, { title, task }] });
+  };
+
+  renderTodos = () => {
+    if (this.state.todos) {
+      return this.state.todos.map(todo => (
+        <li>
+          {todo.title} {todo.task}
+        </li>
+      ));
+    }
+    return null;
+  };
+
   render() {
     return (
       <>
@@ -21,31 +49,32 @@ class Services extends Component {
           <Container>
             <Row>
               <Col sm="6">
-                {/* <h1 className={styles.heading}>Hollyway</h1> */}
-                <h3>Create New Contacts</h3>
-                <Form>
+                <h3>Create New Todos</h3>
+                <Form onSubmit={this.handleSubmit}>
                   <FormGroup>
-                    <Label for="exampleEmail">Email</Label>
+                    <Label for="exampleTitle">Title</Label>
                     <Input
-                      type="email"
-                      name="email"
-                      id="exampleEmail"
-                      placeholder="with a placeholder"
+                      type="text"
+                      name="title"
+                      id="exampleTitle"
+                      placeholder="Title for Todo"
+                      onChange={this.handleChange}
                     />
                   </FormGroup>
                   <FormGroup>
-                    <Label for="examplePassword">Password</Label>
+                    <Label for="exampleTask">Task</Label>
                     <Input
-                      type="password"
-                      name="password"
-                      id="examplePassword"
-                      placeholder="password placeholder"
+                      type="text"
+                      name="task"
+                      id="exampleTask"
+                      placeholder="Task of Todo"
+                      onChange={this.handleChange}
                     />
                   </FormGroup>
+                  <Button type="submit" className={styles.btn}>
+                    Add New Contact
+                  </Button>
                 </Form>
-                <Button className={styles.btn} css>
-                  Get Started
-                </Button>
               </Col>
               <Col sm="6">
                 <img src="/undraw.svg" className={styles.ctaImage} alt="girl" />
@@ -55,7 +84,7 @@ class Services extends Component {
         </div>
         <Container>
           <Row className="my-4">
-            <p>form here?</p>
+            <ul>{this.renderTodos()}</ul>
           </Row>
         </Container>
       </>
