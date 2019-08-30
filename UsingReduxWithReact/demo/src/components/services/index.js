@@ -34,14 +34,13 @@ class Services extends Component {
   };
 
   renderContacts = () => {
-    if (this.state.contacts) {
-      return this.state.contacts.map(contact => (
-        <li key={contact.number}>
-          {contact.name} {contact.number}
-        </li>
-      ));
-    }
-    return null;
+    const { contacts } = store.getState();
+
+    return contacts.map(contact => (
+      <li key={contact.number}>
+        {contact.name} {contact.number}
+      </li>
+    ));
   };
 
   render() {

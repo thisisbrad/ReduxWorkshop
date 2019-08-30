@@ -21,3 +21,5 @@ store.dispatch(addContact({ name: 'Tina', number: '523456789' }));
 store.dispatch(addContact({ name: 'Gene', number: '623456789' }));
 
 console.log(store.getState());
+
+export default store;
