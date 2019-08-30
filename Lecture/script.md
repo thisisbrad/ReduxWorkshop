@@ -218,3 +218,10 @@ console.log(state);
 - how can we bind react and redux in a clean manner
 
 - go over HOC and install react-redux
+
+- use connect and add provider in App
+- go back to services and mapStateToProps
+
+- Add thunk and dev tools
+
+- start async actions
